@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>회원가입 페이지</title>
+    <link rel="stylesheet" href="signup.css">
+</head>
+<body>
+    <div id="signup-wrap">
+        <h2>회원가입</h2>
+        <form id="signup_form" name="signup_form" action="/register" method="POST">
+            <label for="name">이름:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="username">아이디:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="email">이메일:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="password">비밀번호:</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit">가입하기</button>
+        </form>
+    </div>
+    <script>
+        const form = document.getElementById("signup_form");
+        form.addEventListener("submit", function (event) {
+            event.preventDefault(); // 기본 폼 제출 동작 방지
+
+            // 여기에 회원가입 정보를 전송하는 Ajax 요청 코드를 작성할 수 있습니다.
+            // 회원가입에 대한 서버 응답이 성공적이라면 아래 리다이렉트 코드를 실행합니다.
+
+            // 회원가입 성공 시 성공 멘트와 함께 index.html로 이동
+            alert("회원가입에 성공하셨습니다.");
+            window.location.href = "index.html"; 
+        });
+    </script>
+</body>
+</html>
