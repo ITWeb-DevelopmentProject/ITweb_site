@@ -19,6 +19,8 @@ app.listen(port, () => {
   console.log(`서버가 정상 작동중 입니다. 서버주소 : http://localhost:${port}`);
 });
 */
+
+// 서버를 띄우기 위한 express 기본 라이브러리
 const express = require('express');
 const session = require('express-session');
 const bodyParser = require('body-parser');
@@ -26,7 +28,7 @@ const mysql = require('mysql2');
 const path = require('path');
 
 const app = express();
-const port = 3000;
+const port = 3000; // 사용할 포트 번호
 
 // MySQL 연결 설정
 const connection = mysql.createConnection({
@@ -95,7 +97,7 @@ app.post('/login', (req, res) => {
   
     // MySQL에서 회원 정보 조회
    const query = `SELECT * FROM users WHERE username = ? AND password = ?`;
-connection.query(query, [username, password], (err, result) => {
+  connection.query(query, [username, password], (err, result) => {
       if (err) {
         console.error('로그인 에러:', err);
         res.status(500).send('로그인에 실패했습니다.');
